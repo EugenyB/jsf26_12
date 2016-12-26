@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
+      <h:head><title>Start</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+      </h:head>
+      <h:body>
+         <h:outputLink value="hello.xhtml">Привет</h:outputLink><br/>
+         <h:form>
+            <h:panelGrid columns="2" style="background-color: white">
+               <h:outputLabel value="Имя" for="nameTextField" />
+                <h:inputText value="#{personBean.person.name}" id="nameTextField" required="true" />
+                <h:commandButton value="Say hello" action="#{personBean.check}" />
+            </h:panelGrid>
+         </h:form>
+          <h:dataTable value="#{personBean.people}" var="p">
+              <h:column>#{p.id}</h:column>
+              <h:column>#{p.name}</h:column>
+          </h:dataTable>
+      </h:body>
+   </f:view>
+</html>
